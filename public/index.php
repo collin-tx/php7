@@ -17,24 +17,30 @@ use App\Format\{JSON,XML,YAML};
 // $xml = new F\XML();
 // $yml = new F\YAML();
 
-$json = new JSON([
-  'key' => 'value',
-  'another_key' => 'value2'
-  ]);
-$xml = new XML();
-$yml = new YAML();
+print_r("INHERITANCE \n\n");
 
+$data = [
+  'name' => 'John',
+  'surname' => 'Doe'
+];
 
-// $json = new F\JSON();
-// $xml = new F\XML();
-// $yml = new F\YAML();
+$json = new JSON($data);
+$xml = new XML($data);
+$yml = new YAML($data);
 
-print_r("Namespaces");
+var_dump($json);
+var_dump($xml);
+var_dump($yml);
 
-print_r($json);
-print_r($xml);
-print_r($yml);
-
+print_r("\n\n RESULT OF CONVERSION \n\n");
 var_dump($json->convert());
-var_dump(JSON::DATA);
-var_dump(JSON::convertData());
+$xml->setData([
+  'key1' => 'dis da xml',
+  'key2' => 'knowtamene'
+]);
+$yml->setData([
+  'key1' => 'dis da YAAMMMLLL',
+  'key2' => 'YAAAA'
+]);
+var_dump($xml->convert());
+var_dump($yml->convert());
