@@ -2,7 +2,7 @@
 
 namespace App\Format;
 
-class BaseFormat {
+abstract class BaseFormat {
   
   protected $data;
 
@@ -21,10 +21,10 @@ class BaseFormat {
     $this->data = $data;
   }
 
-  public function convert()
-  {
-    return "I ain't doing shit dawg";
-  }
+  public abstract function convert();
+  // {
+  //   return "I ain't doing shit dawg";
+  // } -- abstract methods can't have a body
 
   public function __toString()
   {
