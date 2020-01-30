@@ -17,7 +17,7 @@ use App\Format\{JSON,XML,YAML};
 // $xml = new F\XML();
 // $yml = new F\YAML();
 
-print_r("INHERITANCE \n\n");
+print_r(nl2br("INHERITANCE \n\n"));
 
 $data = [
   'name' => 'John',
@@ -32,7 +32,7 @@ var_dump($json);
 var_dump($xml);
 var_dump($yml);
 
-print_r("\n\n RESULT OF CONVERSION \n\n");
+print_r(nl2br("\n\n RESULT OF CONVERSION \n\n"));
 var_dump($json->convert());
 $xml->setData([
   'key1' => 'dis da xml',
