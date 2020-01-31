@@ -4,7 +4,7 @@ namespace App\Format;
 
 use App\Format\BaseFormat;
 
-class JSON extends BaseFormat{
+class JSON extends BaseFormat implements FromStringInterface{
 
   public function convert()
   {

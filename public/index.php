@@ -30,3 +30,5 @@ var_dump($json->convert());
 var_dump($xml->convert());
 var_dump($yml->convert());
 // var_dump($base->convert());
+
+var_dump($json->convertFromString('{"name": "John, "surname": "Wilson"}'));
