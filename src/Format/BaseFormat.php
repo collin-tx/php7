@@ -26,8 +26,8 @@ abstract class BaseFormat {
   //   return "I ain't doing shit dawg";
   // } -- abstract methods can't have a body
 
-  public abstract function convertFromString();
-  
+  // public abstract function convertFromString($string);
+
   public function __toString()
   {
     return $this->convert();
