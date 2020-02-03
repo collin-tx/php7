@@ -15,6 +15,10 @@ function convertData(BaseFormat $format) {
   return $format->convert();
 }
 
+function getFormatName(NamedFormatInterface $format){
+  return $format->getName();
+}
+
 $data = [
     "name" => "John",
     "surname" => "Doe"
@@ -22,4 +26,7 @@ $data = [
 
 
 $json = new JSON();
+$xml = new XML($data);
 var_dump(convertData($json));
+var_dump(getFormatName($xml));
+var_dump($xml->convert());
