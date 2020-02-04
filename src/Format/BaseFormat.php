@@ -2,11 +2,11 @@
 
 namespace App\Format;
 
-class BaseFormat {
+abstract class BaseFormat {
   
   protected $data;
 
-  public function __construct($data)
+  public function __construct(array $data = [])
   {
     $this->data = $data;
   }
@@ -16,15 +16,17 @@ class BaseFormat {
     return $this->data;
   }
 
-  public function setData($data)
+  public function setData(array $data)
   {
     $this->data = $data;
   }
 
-  public function convert()
-  {
-    return "I ain't doing shit dawg";
-  }
+  public abstract function convert();
+  // {
+  //   return "I ain't doing shit dawg";
+  // } -- abstract methods can't have a body
+
+  // public abstract function convertFromString($string);
 
   public function __toString()
   {

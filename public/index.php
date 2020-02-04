@@ -2,45 +2,31 @@
 
 require __DIR__.'/../vendor/autoload.php';
 
-// use App\Format;
-// use App\Format as F;
-use App\Format\{JSON,XML,YAML};
-// use App\Format\JSON;
-// use App\Format\XML;
-// use App\Format\YAML;
+use App\Format\JSON;
+use App\Format\XML;
+use App\Format\YAML;
+use App\Format\BaseFormat;
+use App\Format\FromStringInterface;
+use App\Format\NamedFormatInterface;
 
-// $json = new App\Format\JSON();
-// $xml = new App\Format\XML();
-// $yml = new App\Format\YAML();
+print_r(nl2br("Typed Arguments & Return types\n\n"));
 
-// $json = new F\JSON();
-// $xml = new F\XML();
-// $yml = new F\YAML();
+function convertData(BaseFormat $format) {
+  return $format->convert();
+}
 
-print_r(nl2br("INHERITANCE \n\n"));
+function getFormatName(NamedFormatInterface $format){
+  return $format->getName();
+}
 
 $data = [
-  'name' => 'John',
-  'surname' => 'Doe'
+    "name" => "John",
+    "surname" => "Doe"
 ];
 
-$json = new JSON($data);
+
+$json = new JSON();
 $xml = new XML($data);
-$yml = new YAML($data);
-
-var_dump($json);
-var_dump($xml);
-var_dump($yml);
-
-print_r(nl2br("\n\n RESULT OF CONVERSION \n\n"));
-var_dump($json->convert());
-$xml->setData([
-  'key1' => 'dis da xml',
-  'key2' => 'knowtamene'
-]);
-$yml->setData([
-  'key1' => 'dis da YAAMMMLLL',
-  'key2' => 'YAAAA'
-]);
+var_dump(convertData($json));
+var_dump(getFormatName($xml));
 var_dump($xml->convert());
-var_dump($yml->convert());
