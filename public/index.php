@@ -9,24 +9,7 @@ use App\Format\BaseFormat;
 use App\Format\FromStringInterface;
 use App\Format\NamedFormatInterface;
 
-print_r(nl2br("Anonymous Functions\n\n"));
-
-function convertData(BaseFormat $format) {
-  return $format->convert();
-}
-
-function getFormatName(NamedFormatInterface $format){
-  return $format->getName();
-}
-
-function getFormatByName(array $formats, string $name): BaseFormat {
-  foreach ($formats as $format) {
-    if ($format instanceof NamedFormatInterface && $format->getName()){
-      return $format;
-    }
-  }
-  return null;
-}
+print_r(nl2br("Reflections\n\n"));
 
 $data = [
     "name" => "John",
@@ -41,18 +24,3 @@ $yml = new YAML($data);
 $formats = [
   $json, $xml, $yml
 ];
-
-
-function findByName(string $name, array $formats): ?BaseFormat {
-  $found = array_filter($formats, function($format) use ($name) {
-    return $format->getName() === $name;
-  });
-
-  if (count($found)) {
-    return reset($found);
-  }
-
-  return null;
-}
-
-var_dump(findByName('ap[s9df', $formats));
