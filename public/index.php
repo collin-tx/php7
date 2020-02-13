@@ -9,15 +9,7 @@ use App\Format\BaseFormat;
 use App\Format\FromStringInterface;
 use App\Format\NamedFormatInterface;
 
-print_r(nl2br("Typed Arguments & Return types\n\n"));
-
-function convertData(BaseFormat $format) {
-  return $format->convert();
-}
-
-function getFormatName(NamedFormatInterface $format){
-  return $format->getName();
-}
+print_r(nl2br("Reflections\n\n"));
 
 $data = [
     "name" => "John",
@@ -25,8 +17,10 @@ $data = [
 ];
 
 
-$json = new JSON();
+$json = new JSON($data);
 $xml = new XML($data);
-var_dump(convertData($json));
-var_dump(getFormatName($xml));
-var_dump($xml->convert());
+$yml = new YAML($data);
+
+$formats = [
+  $json, $xml, $yml
+];

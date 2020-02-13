@@ -19,7 +19,7 @@ implements NamedFormatInterface {
 
   public function getName()
   {
-    return 'YML!';
+    return 'YML';
   }
 
 }

@@ -21,7 +21,7 @@ class JSON extends BaseFormat
 
   public function getName()
   {
-    return 'JSON!';
+    return 'JSON';
   }
 
 }
