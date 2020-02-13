@@ -19,7 +19,7 @@ class XML extends BaseFormat
 
   public function getName()
   {
-    return 'XML!';
+    return 'XML';
   }
 
 }
