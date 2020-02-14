@@ -5,9 +5,10 @@ namespace App\Format;
 use App\Format\BaseFormat;
 
 class YAML extends BaseFormat
-implements NamedFormatInterface {
+implements NamedFormatInterface,
+FormatInterface {
   
-  public function convert()
+  public function convert(): string
   {
     $result = '';
 
