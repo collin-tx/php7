@@ -8,35 +8,23 @@ use App\Format\YAML;
 use App\Format\BaseFormat;
 use App\Format\FromStringInterface;
 use App\Format\NamedFormatInterface;
+use App\Serializer;
 
-print_r(nl2br("Reflections\n\n"));
+print_r(nl2br("Dependency Injection\n\n"));
 
 $data = [
     "name" => "John",
     "surname" => "Doe"
 ];
 
-
-$json = new JSON($data);
-$xml = new XML($data);
-$yml = new YAML($data);
-
-$formats = [
-  $json, $xml, $yml
-];
+$serializer = new Serializer(new XML());
+var_dump($serializer->serialize($data));
 
 
-$class = new ReflectionClass(JSON::class);
-var_dump($class);
-$method = $class->getConstructor();
-var_dump($method);
-$parameters = $method->getParameters();
-var_dump($parameters);
+// $json = new JSON($data);
+// $xml = new XML($data);
+// $yml = new YAML($data);
 
-print_r(nl2br("\n\n\n\n"));
-
-foreach($parameters as $p){
-  $type = $p->getType();
-  var_dump((string)$type);
-  var_dump($type->isBuiltin());
-}
+// $formats = [
+//   $json, $xml, $yml
+// ];
