@@ -24,3 +24,19 @@ $yml = new YAML($data);
 $formats = [
   $json, $xml, $yml
 ];
+
+
+$class = new ReflectionClass(JSON::class);
+var_dump($class);
+$method = $class->getConstructor();
+var_dump($method);
+$parameters = $method->getParameters();
+var_dump($parameters);
+
+print_r(nl2br("\n\n\n\n"));
+
+foreach($parameters as $p){
+  $type = $p->getType();
+  var_dump((string)$type);
+  var_dump($type->isBuiltin());
+}
